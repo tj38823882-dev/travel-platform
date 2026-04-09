@@ -19,23 +19,13 @@ const router = useRouter();
       已解鎖/購買的行程
     </h4>
     <p class="text-muted small mb-4">這裡存放您使用點數購買的行程，可以直接進入觀看完整天數與站點。</p>
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> origin/666
     <div class="row g-3">
       <div v-for="itinerary in purchasedTrips" :key="itinerary.id" class="col-md-6">
         <div class="trip-card h-100 p-0 rounded-4 border overflow-hidden shadow-sm hover-shadow transition-all">
           <div class="trip-image-container position-relative" style="height: 160px;">
-<<<<<<< HEAD
-            <img :src="itinerary.coverImage || 'https://images.unsplash.com/photo-1543158266-0066955047b1'"
-              class="w-100 h-100 object-fit-cover" alt="Trip Cover">
-=======
             <img :src="itinerary.coverImage || 'https://images.unsplash.com/photo-1543158266-0066955047b1'" 
                  class="w-100 h-100 object-fit-cover" 
                  alt="Trip Cover">
->>>>>>> origin/666
           </div>
           <div class="p-3">
             <h5 class="fw-bold text-truncate mb-1">{{ itinerary.title || '未命名行程' }}</h5>
