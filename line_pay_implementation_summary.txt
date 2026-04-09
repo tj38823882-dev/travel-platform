@@ -1,0 +1,48 @@
+LINE Pay 支付功能實作紀錄
+
+日期：2026-02-03
+狀態：完成前後端全流程串接
+
+---
+1. 後端修正與優化 (Backend Fixes)
+---
+* PaymentService.java:
+  - 修正 findById 參數型別錯誤 (Long -> Integer)。
+  - 調整 LinePayConfirmDto 實例化方式以符合新結構。
+* TopupOrder.java (Entity):
+  - 將 transactionId 型別由 Integer 改為 String (避免 LINE Pay 交易號碼過長導致溢位)。
+* LinePayRequestDto.java:
+  - 修正 Package 路徑錯誤。
+* LinePayConfirmDto.java:
+  - 加入 transactionId 與 orderId 欄位。
+  - 設定 JsonProperty.Access.WRITE_ONLY，確保與 LINE Pay API 溝通時不包含額外欄位。
+
+---
+2. 新增控制層 API (New API Endpoints)
+---
+* PaymentController.java:
+  - POST /api/user/payment/request: 發起支付，回傳 LINE Pay 付款連結。
+  - POST /api/user/payment/confirm: 確認支付結果，完成點數儲值。
+* UserController.java:
+  - GET /api/user/me: 提供前端同步最新的使用者資訊 (包含餘額)。
+
+---
+3. 前端功能串接 (Frontend Implementation)
+---
+* Checkouts.vue:
+  - 串接 /api/user/payment/request，實作真實跳轉至 LINE Pay。
+* PaymentConfirm.vue (新頁面):
+  - 處理支付後回跳邏輯。
+  - 自動呼叫 confirmation API。
+  - 增加支付成功/失敗動畫 UI。
+* router/index.js:
+  - 註冊 /payment/confirm 路由。
+* authStore.js:
+  - 增加 fetchUserInfo 方法，確保支付成功後 Navbar 上的點數能即時翻新。
+
+---
+4. 儲值流程速查
+---
+1. 儲值頁面選擇方案 -> 2. 結帳頁面點擊支付 -> 3. 跳轉 LINE Pay -> 4. 支付完成回跳網站 -> 5. 自動確認並入帳。
+
+紀錄檔案：line_pay_implementation_summary.txt

@@ -1,0 +1,44 @@
+backend/HELP.md
+agent.md
+backend/target/
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+node_modules/
+dist/
+build/
+coverage/
+tmp/
+logs/
+*.log
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/nbdist/
+/.nb-gradle/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/*
+!.vscode/extensions.json
+
+### OS files ###
+.DS_Store
+Thumbs.db

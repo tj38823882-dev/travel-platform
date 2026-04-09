@@ -1,0 +1,151 @@
+/* 引入 Google Fonts: Outfit (標題) 與 Inter (內文) */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* --- 高級色彩配置 --- */
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  /* 主色漸層 (靛藍-紫) */
+  --secondary-gradient: linear-gradient(135deg, #3b82f6 0%, #2dd4bf 100%);
+  /* 次色漸層 (藍-翠綠) */
+
+  /* --- 毛玻璃效果配置 --- */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+
+  /* --- 語意化顏色定義 --- */
+  --primary: #6366f1;
+  --secondary: #3b82f6;
+  --accent: #f43f5e;
+  --success: #10b981;
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+
+  /* --- 間距、圓角與動畫配置 --- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 30px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 標題類別統一使用 Outfit 字體 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.fw-bold {
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* --- 毛玻璃效果通用類別 --- */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+/* --- 按鈕樣式優化 --- */
+.btn {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  transition: var(--transition);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 1.4rem;
+}
+
+.btn-primary {
+  background: var(--primary-gradient);
+  border: none;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+  background: var(--primary-gradient);
+  filter: brightness(1.1);
+}
+
+/* --- 卡片樣式優化 --- */
+.card {
+  border: none;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 導覽列與標誌樣式 --- */
+.navbar {
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 1rem 0;
+  background: rgba(99, 102, 241, 0.95) !important;
+}
+
+.navbar-brand {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: white;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- 自定義捲軸樣式 --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* --- 全域進場動畫 --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.6s ease forwards;
+}
