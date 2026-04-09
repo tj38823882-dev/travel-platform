@@ -11,6 +11,7 @@ coverage/
 tmp/
 logs/
 *.log
+_public_repo_smoketest/
 
 ### STS ###
 .apt_generated
